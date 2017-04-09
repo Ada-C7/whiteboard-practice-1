@@ -1,21 +1,19 @@
 def stretch(array)
-  stretch_array = "["
+  print "["
 
   for i in 0..array.length-1
     if array[i] % 2 == 0
-      stretch_array += (array[i] / 2).to_s + ", " + (array[i] / 2).to_s
+      print array[i] / 2
     else
-      stretch_array += ((array [i] / 2) + 1).to_s + ", " + (array[i] / 2).to_s
+      print (array[i] / 2) + 1
     end
-
-    if i != array.length-1
-      stretch_array += ", "
-    else
-      stretch_array += "]"
-    end
+    print ", "
+    print (array[i] / 2)
+    print ", " if i != array.length-1
   end
-  return stretch_array
+  
+  puts "]"
 end
 
 list = [18, 7, 4, 24, 11]
-puts stretch(list)
+stretch(list)

@@ -1,17 +1,13 @@
 def print_array(array)
-  array_string = "["
+  print "["
 
   for i in 0..array.length-1
-    array_string += array[i].to_s
-
-    if i != array.length-1
-      array_string += ", "
-    else
-      array_string += "]"
-    end
+    print array[i]
+    print ", " if i != array.length-1
   end
-  return array_string
+
+  puts "]"
 end
 
 list = [3, 19, 27, 4, 98, 304, -9, 72]
-puts print_array(list)
+print_array(list)
