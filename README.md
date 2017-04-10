@@ -32,6 +32,23 @@ Then the call of `print(list)` should produce the following output:
 
 Your method should produce a single line of output (may wrap with long lists).
 
+#Answer : Problem 1
+def print_array(array)
+  length = array.length
+  counter = 1
+  print "["
+  array.each do |n|
+    if counter == length
+      print n
+    else
+      print n
+      print ", "
+      counter += 1
+    end
+  end
+  print "]"
+end
+
 ## Problem #2
 Write a method named `stretch` that accepts an array of integers as a
 parameter and returns a **new** array twice as large as the original, where
@@ -48,6 +65,24 @@ a new array containing `[9, 9, 4, 3, 2, 2, 12, 12, 6, 5]`. (The number 18
 is stretched into the pair 9, 9, the number 7 is stretched into 4, 3,
 the number 4 is stretched into 2, 2, the number 24 is stretched into 12,
 12 and the number 11 is stretched into 6, 5.)
+
+#Answer : Problem 2
+
+def stretch(array)
+  new_array = []
+
+  array.each do |n|
+   half = n/2
+   if half + half != n
+     new_array << half + 1
+   else
+     new_array << half
+   end
+    new_array << half
+  end
+
+  return new_array
+end
 
 ## Problem #3
 Write a method named `numUnique` that accepts a sorted array of integers
@@ -68,6 +103,16 @@ because this list contains 15 different values.
 
 If passed an empty list, your method should return **0**.
 
+#Answer : Problem 3
+def numUnique(list)
+  a = {}
+  list.each do |n|
+    a[n] = 1
+  end
+  return a.length
+end
+
+
 ## Problem #4
 Write a method named `numUnique2` that functions the same as `numUnique`
 except that it **does NOT use a hash** to solve the problem. In this version,
@@ -76,3 +121,21 @@ outside of fixnum variables, if needed.
 
 Remember that you can assume that the values in the array appear in
 sorted (nondecreasing) order.
+
+#Answer : Problem 4
+def numUnique2(list)
+  num = 0
+  index = 0
+  num = list.length - 1
+  if list.length != 0
+    num.times do |n|
+      if list[index] != list[index + 1]
+        num += 1
+      end
+      index += 1
+    end
+    return num + 1
+  else
+    return 0
+  end
+end
