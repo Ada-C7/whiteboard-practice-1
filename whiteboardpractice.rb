@@ -22,7 +22,7 @@ def print_array(array)
   end
 end
 
-print_array([3, 19, 27, 4, 98, 304, -9, 72])
+# print_array([3, 19, 27, 4, 98, 304, -9, 72])
 
 
 # Write a method named stretch that accepts an array of integers as a parameter and returns a new array twice as large as the original, where every integer from the original array is replaced with a pair of integers, each half the original.
@@ -33,7 +33,28 @@ print_array([3, 19, 27, 4, 98, 304, -9, 72])
 
 
 
-def stretch
+def stretch(array)
+  #this will be the new array
+  stretched_array = []
+  array.each do |num|
+    #goes through each number in array and determines if each number is even
+    if num % 2 == 0
+      #if even, divide num in 2
+      num = num/2
+      2.times do
+        #puts the number that is equal to /2 the orgicinal twice into the array
+        stretched_array << num
+      end
+    else
+      #gets an integer (so it will be the lower of the two numbers)
+      num = num/2.to_int #is this too much ruby magic?
+      num += 1
+      stretched_array << num
+      num -= 1 #here's the bigger number
+      stretched_array << num
+    end
+  end
+  print stretched_array
+end
 
-
-end 
+stretch([18, 7, 4, 24, 11])
