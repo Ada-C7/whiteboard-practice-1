@@ -32,6 +32,8 @@ Then the call of `print(list)` should produce the following output:
 
 Your method should produce a single line of output (may wrap with long lists).
 
+
+
 ## Problem #2
 Write a method named `stretch` that accepts an array of integers as a
 parameter and returns a **new** array twice as large as the original, where
