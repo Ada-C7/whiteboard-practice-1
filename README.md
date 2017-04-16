@@ -32,6 +32,23 @@ Then the call of `print(list)` should produce the following output:
 
 Your method should produce a single line of output (may wrap with long lists).
 
+def print_array(list)
+  string_result = "["
+  num = 0
+  while num < list.length
+    if num != list.length - 1
+      str_version = list[num].to_s + ", "
+      string_result += str_version
+      num += 1
+      else
+      str_version = list[num].to_s + "]"
+      string_result += str_version
+      num += 1
+    end
+  end
+  return string_result
+end
+
 ## Problem #2
 Write a method named `stretch` that accepts an array of integers as a
 parameter and returns a **new** array twice as large as the original, where
@@ -49,6 +66,25 @@ is stretched into the pair 9, 9, the number 7 is stretched into 4, 3,
 the number 4 is stretched into 2, 2, the number 24 is stretched into 12,
 12 and the number 11 is stretched into 6, 5.)
 
+(assuming all numbers are positive)
+
+def stretch(list)
+  array = []
+  count = 0
+  while count < list.length
+    if list[count] %2 == 0
+      array << list[count] / 2
+      array << list[count] / 2
+      count += 1
+    else
+      array << (list[count] / 2) + 1
+      array << list[count] / 2
+      count += 1
+    end
+  end
+  return array
+end
+  
 ## Problem #3
 Write a method named `numUnique` that accepts a sorted array of integers
 as a parameter and **utilizes a hash to** calculate and return the number of
