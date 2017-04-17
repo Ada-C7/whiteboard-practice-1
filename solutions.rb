@@ -74,6 +74,9 @@ print stretch(list)
 # If passed an empty list, your method should return **0**.
 
 def numUnique list
+  if list.length == 0
+    return "**0**"
+  end
   counter = Hash.new
   counter[list[0]] = 1
 
@@ -99,7 +102,7 @@ def numUnique list
     unique_nums << key
   end
 
-  return unique_nums
+  return "**#{unique_nums.length}**"
 
 end
 
@@ -129,7 +132,7 @@ def numUnique2 list
       unique_numbers << num
     end
   end
-  return unique_numbers
+  return "**#{unique_numbers.length}**"
 end
 
 
