@@ -99,7 +99,7 @@ If passed an empty list, your method should return **0**.
 def numUnique sorted_list
   temp = {}
   sorted_list.each do | number |
-    if temp.has_key?(number) 
+    if temp.has_key?(number)
       temp[number] += 1
     else
       temp[number] = 1
@@ -116,3 +116,17 @@ outside of fixnum variables, if needed.
 
 Remember that you can assume that the values in the array appear in
 sorted (nondecreasing) order.
+
+## Solution #4
+def numUnique2 sorted_list
+  i = 0
+  while sorted_list[i + 1]
+    if sorted_list[i] == sorted_list[i + 1]
+      sorted_list.delete_at(i + 1)
+    else
+      i += 1
+    end
+  end
+  puts sorted_list
+  return sorted_list.count
+end
