@@ -59,6 +59,36 @@ is stretched into the pair 9, 9, the number 7 is stretched into 4, 3,
 the number 4 is stretched into 2, 2, the number 24 is stretched into 12,
 12 and the number 11 is stretched into 6, 5.)
 
+```
+def stretch(array)
+  raise ArgumentError.new("You must input an array") if array.class != Array
+
+  index = 0
+  repeat = array.length
+  new_array = []
+
+  repeat.times do
+    if array[index] == 0
+      new_num1 = 0
+      new_num2 = 0
+    elsif array[index] % 2 == 0
+      new_num1 = array[index] / 2
+      new_num2 = new_num1
+    else
+      new_num1 = array[index] / 2
+      new_num2 = new_num1 + 1
+    end
+
+    new_array << new_num1
+    new_array << new_num2
+
+    index += 1
+  end
+
+  print new_array
+end
+```
+
 ## Problem #3
 Write a method named `numUnique` that accepts a sorted array of integers
 as a parameter and **utilizes a hash to** calculate and return the number of
