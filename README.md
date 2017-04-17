@@ -32,6 +32,16 @@ Then the call of `print(list)` should produce the following output:
 
 Your method should produce a single line of output (may wrap with long lists).
 
+```
+def print_array(array)
+  raise ArgumentError.new("You must input an array") if array.class != Array
+  print array[0..-1]
+end
+
+list = [3, 19, 27, 4, 98, 304, -9, 72]
+print_array(list)
+```
+
 ## Problem #2
 Write a method named `stretch` that accepts an array of integers as a
 parameter and returns a **new** array twice as large as the original, where
