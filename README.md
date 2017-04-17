@@ -32,7 +32,6 @@ Then the call of `print(list)` should produce the following output:
 
 Your method should produce a single line of output (may wrap with long lists).
 
-
 ## Solution #1
 def print_array list
   temp = "["
@@ -77,7 +76,6 @@ def stretch list
   return temp
 end
 
-
 ## Problem #3
 Write a method named `numUnique` that accepts a sorted array of integers
 as a parameter and **utilizes a hash to** calculate and return the number of
@@ -96,6 +94,19 @@ Then a call on the method would return **15**
 because this list contains 15 different values.
 
 If passed an empty list, your method should return **0**.
+
+## Solution #3
+def numUnique sorted_list
+  temp = {}
+  sorted_list.each do | number |
+    if temp.has_key?(number) 
+      temp[number] += 1
+    else
+      temp[number] = 1
+    end
+  end
+  return temp.keys.count
+end
 
 ## Problem #4
 Write a method named `numUnique2` that functions the same as `numUnique`
