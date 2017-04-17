@@ -32,6 +32,19 @@ Then the call of `print(list)` should produce the following output:
 
 Your method should produce a single line of output (may wrap with long lists).
 
+## Solution #1
+def print_array list
+  temp = "["
+  list.each_with_index do | number, i |
+    if i != list.length - 1
+      temp += "#{number}, "
+    else
+      temp += "#{number}"
+    end
+  end
+  puts temp + "]"
+end
+
 ## Problem #2
 Write a method named `stretch` that accepts an array of integers as a
 parameter and returns a **new** array twice as large as the original, where
@@ -48,6 +61,20 @@ a new array containing `[9, 9, 4, 3, 2, 2, 12, 12, 6, 5]`. (The number 18
 is stretched into the pair 9, 9, the number 7 is stretched into 4, 3,
 the number 4 is stretched into 2, 2, the number 24 is stretched into 12,
 12 and the number 11 is stretched into 6, 5.)
+
+## Solution #2
+def stretch list
+  temp = []
+  list.each do | number |
+    if number % 2 == 1
+      temp << number / 2 + 1
+    else
+      temp << number / 2
+    end
+    temp << number / 2
+  end
+  return temp
+end
 
 ## Problem #3
 Write a method named `numUnique` that accepts a sorted array of integers
@@ -68,6 +95,19 @@ because this list contains 15 different values.
 
 If passed an empty list, your method should return **0**.
 
+## Solution #3
+def numUnique sorted_list
+  temp = {}
+  sorted_list.each do | number |
+    if temp.has_key?(number)
+      temp[number] += 1
+    else
+      temp[number] = 1
+    end
+  end
+  return temp.keys.count
+end
+
 ## Problem #4
 Write a method named `numUnique2` that functions the same as `numUnique`
 except that it **does NOT use a hash** to solve the problem. In this version,
@@ -76,3 +116,17 @@ outside of fixnum variables, if needed.
 
 Remember that you can assume that the values in the array appear in
 sorted (nondecreasing) order.
+
+## Solution #4
+def numUnique2 sorted_list
+  i = 0
+  while sorted_list[i + 1]
+    if sorted_list[i] == sorted_list[i + 1]
+      sorted_list.delete_at(i + 1)
+    else
+      i += 1
+    end
+  end
+  puts sorted_list
+  return sorted_list.count
+end
