@@ -32,6 +32,32 @@ Then the call of `print(list)` should produce the following output:
 
 Your method should produce a single line of output (may wrap with long lists).
 
+
+``` ruby
+
+def print_array(list)
+  #create new string with open bracket
+  array = "["
+  #create index tally
+  index = -1
+  # iterate through each array element
+  list.each do |num|
+    index += 1
+    # if index list[0] concat num, comma & space to the string
+    if index == (list.length - list.length)
+      array += "#{num}, "
+    # if index list[-1] concat num and close bracket to the string
+    elsif index == (list.length - 1)
+      array += "#{num}]"
+    # else concat num comma and space to the string
+    else
+      array += "#{num}, "
+    end
+  end
+  #print string
+  print array
+end
+```
 ## Problem #2
 Write a method named `stretch` that accepts an array of integers as a
 parameter and returns a **new** array twice as large as the original, where
@@ -48,6 +74,34 @@ a new array containing `[9, 9, 4, 3, 2, 2, 12, 12, 6, 5]`. (The number 18
 is stretched into the pair 9, 9, the number 7 is stretched into 4, 3,
 the number 4 is stretched into 2, 2, the number 24 is stretched into 12,
 12 and the number 11 is stretched into 6, 5.)
+
+
+```ruby
+def stretch(array)
+  #create new array
+  new_array = Array.new
+  #iterate over each element in the given array
+  array.each do |num|
+    # if given element is odd
+    if num % 2 != 0
+      # add element to new array followed by element + 1
+      new_array << num/2
+      new_array << (num/2 + 1)
+      # else
+    else
+      # add element 2 times to the new array
+      new_array << num/2
+      new_array << num/2
+    end
+    # end loop
+  end
+  # return new array
+  return new_array
+end
+
+```
+
+
 
 ## Problem #3
 Write a method named `numUnique` that accepts a sorted array of integers
