@@ -75,6 +75,34 @@ is stretched into the pair 9, 9, the number 7 is stretched into 4, 3,
 the number 4 is stretched into 2, 2, the number 24 is stretched into 12,
 12 and the number 11 is stretched into 6, 5.)
 
+
+```ruby
+def stretch(array)
+  #create new array
+  new_array = Array.new
+  #iterate over each element in the given array
+  array.each do |num|
+    # if given element is odd
+    if num % 2 != 0
+      # add element to new array followed by element + 1
+      new_array << num/2
+      new_array << (num/2 + 1)
+      # else
+    else
+      # add element 2 times to the new array
+      new_array << num/2
+      new_array << num/2
+    end
+    # end loop
+  end
+  # return new array
+  return new_array
+end
+
+```
+
+
+
 ## Problem #3
 Write a method named `numUnique` that accepts a sorted array of integers
 as a parameter and **utilizes a hash to** calculate and return the number of
