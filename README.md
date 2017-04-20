@@ -32,6 +32,32 @@ Then the call of `print(list)` should produce the following output:
 
 Your method should produce a single line of output (may wrap with long lists).
 
+
+``` ruby
+
+def print_array(list)
+  #create new string with open bracket
+  array = "["
+  #create index tally
+  index = -1
+  # iterate through each array element
+  list.each do |num|
+    index += 1
+    # if index list[0] concat num, comma & space to the string
+    if index == (list.length - list.length)
+      array += "#{num}, "
+    # if index list[-1] concat num and close bracket to the string
+    elsif index == (list.length - 1)
+      array += "#{num}]"
+    # else concat num comma and space to the string
+    else
+      array += "#{num}, "
+    end
+  end
+  #print string
+  print array
+end
+```
 ## Problem #2
 Write a method named `stretch` that accepts an array of integers as a
 parameter and returns a **new** array twice as large as the original, where
