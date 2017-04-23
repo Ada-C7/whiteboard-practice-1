@@ -21,4 +21,10 @@ def numUnique(arr)
   # if not, the new key is the value of the third number, value is 1
   # etc
   # What is the size of the hash?
+    if my_h[num]
+      my_h[num] += 1
+    else
+      my_h[num] = 1
+    end
+  return my_h.length
 end
